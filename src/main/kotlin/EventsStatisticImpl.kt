@@ -41,7 +41,7 @@ class EventsStatisticImpl(private val clock: Clock) : EventsStatistic {
     // for the last hour, with zeros
     override fun getAllEventStatistic(): List<Pair<String, Double>> {
         cleanUp()
-        return requestsCount.map { (name, count) -> name to count.inLastHour.toDouble() / 60 }
+        return requestsCount.map { (name, count) -> name to count.inLastHour.toDouble() / MINUTES_IN_HOUR }
     }
 
     // for all the time
